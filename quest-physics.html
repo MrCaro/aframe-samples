@@ -41,7 +41,7 @@ AFRAME.registerComponent("physics-grab", {
 </script>
 
 <a-scene environment="preset: default;"
-         physx="autoLoad: true; delay: 1000; wasmUrl: js/physx.release.wasm; useDefaultScene: false;">
+         physx="autoLoad: true; delay: 1000; wasmUrl: js/physx.release.wasm; useDefaultScene: false;" cursor="rayOrigin: mouse;">
         
     <a-assets>
         <img id="gradient" src="images/gradient-fade.png" />
@@ -55,12 +55,8 @@ AFRAME.registerComponent("physics-grab", {
         color = "#000337">
     </a-sky>
 
-    <a-link href="./charlie.html" title="Other Examples"
-              image="#portals-preview"
-              onmouseover="this.setAttribute('link', {highlighted: true})"
-              onmouseout="this.setAttribute('link', {highlighted: false})"
-              position = "-4 1.6 -4" rotation="0 0 0" scale="0.25 0.25 0.25">
-      </a-link>
+    <a-link	position="-4 1.6 -4" rotation="0 40 0"
+	href="portal-volcano.html" title="Volcano" image="#previewVolcano"></a-link>
 
     <a-entity 
         id="player" 
