@@ -54,6 +54,13 @@ AFRAME.registerComponent("physics-grab", {
         color = "#000337">
     </a-sky>
 
+    <a-link href="./charlie.html" title="Other Examples"
+              image="#portals-preview"
+              onmouseover="this.setAttribute('link', {highlighted: true})"
+              onmouseout="this.setAttribute('link', {highlighted: false})"
+              position = "-4 1.6 -4" rotation="0 0 0" scale="0.25 0.25 0.25">
+      </a-link>
+
     <a-entity 
         id="player" 
         position="0 0 0" 
