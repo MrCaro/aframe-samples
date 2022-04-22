@@ -2,7 +2,7 @@
 # abort on errors
 set -e
 # build
-yarn run build
+# yarn run build
 # navigate into the build output directory
 # cd public
 git init
