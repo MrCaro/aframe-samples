@@ -6,21 +6,6 @@
 	<meta name="description" content="Hello, WebVR! - A-Frame">
 	<script src="js/aframe-master-v1.3.0.min.js"></script>
 
-	<!-- custom test -->
-	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
-	  <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
-	  
-	  <script>
-		AFRAME.registerReducer('clickcount', {
-		  initialState: {
-			count: 0
-		  },
-		  handlers: {
-			clickCounter: (s) => { s.count++; return s; }
-		  }
-		});
-	  </script>
-
 </head>
 
 <body>
@@ -38,16 +23,6 @@
 			position="-1 4 0">
 		</a-entity>
 	-->
-
-	<!-- START: test superhand -->
-	<a-entity progressive-controls></a-entity>
-    <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
-    <a-plane hoverable grabbable stretchable draggable droppable
-             color="blue" position="0 1.6 -1" rotation="0 0 0"
-             onclick="this.emit('clickCounter')"
-             bind__text="value: clickcount.count">
-    </a-plane>
-	<!-- END: test superhand -->
 
 
 	<a-sky 
