@@ -1,0 +1,18 @@
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js" integrity="sha512-FRllqoDevM/yUYKzCe8K8qvyou3LAsBLSuKYvLSoAQLo70wWTSU6KSi110dXOpEIW8+ehByraYPC188htrPnjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./aframe-speech-command-component.js"></script> 
+
+<!-- components -->
+<a-entity id="annyang" annyang-speech-recognition></a-entity>
+<a-entity id="menu" visible="false"
+        speech-command__show="command: show menu; type: attribute; attribute: visible; value: true;"
+        speech-command__hide="command: hide menu; type: attribute; attribute: visible; value: false;">
+
+        <a-cone id="stick" mixin="bat" position="0 1 0" height="1" dynamic-body
+        rotation="0 0 -90" radius-top="0.03" radius-bottom="0.02" >
+      </a-cone>
+</a-entity>
+
+<!-- go to a diff template -->
+<a-link	position="-4 1.6 -4" rotation="0 40 0"
+href="portal-volcano.html" title="Volcano" image="#previewVolcano"></a-link>
