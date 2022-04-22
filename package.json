@@ -5,5 +5,8 @@
     "private": true,
     "scripts": {
         "deploy": "sh deploy.sh"
+    },
+    "dependencies": {
+        "aframe-speech-command-component": "^0.4.2"
     }
-  }
+}
