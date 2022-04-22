@@ -1,0 +1,9 @@
+{
+    "name": "webxr-aframe-samples",
+    "version": "1.0.0",
+    "description": "A showcase of different WebXR experiences and interaction examples",
+    "private": true,
+    "scripts": {
+        "deploy": "sh deploy.sh"
+    }
+  }
