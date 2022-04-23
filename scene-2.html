@@ -46,23 +46,6 @@
         <img id="city-thumb" crossorigin="anonymous" src="images/border-rainbow-box.png">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
     </a-assets>
-    
-    <a-entity id="annyang" annyang-speech-recognition></a-entity>
-    <a-entity id="menu" visible="false"
-            speech-command__show="command: open; type: attribute; attribute: visible; value: true;"
-            speech-command__hide="command: close; type: attribute; attribute: visible; value: false;">
-
-            <a-plane class="link" height="1" width="1"
-            material="shader: flat; src: #city-thumb"
-            event-set__1="_event: mousedown; scale: 1 1 1"
-            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-            event-set__4="_event: mouseleave; scale: 1 1 1"
-            set-image="on: click; target: #image-360; src: #city"
-            sound="on: click; src: #click-sound"
-            speech-command="command: go to next; type: attribute; targetElement: #scene-1; attribute: src; value: #city;"
-            update-raycaster="#cursor"></a-plane>
-    </a-entity>
 
 <!-- note: raycast issue (link still active) after walking through portal -->
 
@@ -82,6 +65,24 @@
 
 <a-link position="4 1.6 -4" rotation="0 -40 0"
     href="portal-default.html" title="Default" image="#previewDefault"></a-link>
+
+     
+    <a-entity id="annyang" annyang-speech-recognition></a-entity>
+    <a-entity id="menu" visible="false"
+            speech-command__show="command: open; type: attribute; attribute: visible; value: true;"
+            speech-command__hide="command: close; type: attribute; attribute: visible; value: false;">
+
+            <a-plane class="link" height="1" width="1"
+            material="shader: flat; src: #city-thumb"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: #city"
+            sound="on: click; src: #click-sound"
+            speech-command="command: go to next; type: attribute; targetElement: #scene-1; attribute: src; value: #city;"
+            update-raycaster="#cursor"></a-plane>
+    </a-entity>
 
 </a-scene>
 
