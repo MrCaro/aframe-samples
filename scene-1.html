@@ -2,14 +2,12 @@
   <head>
     <title>Scene 1 - Demo Basic Super Hands Interaction WebXR</title>
     <script src="./build.js"></script>
-    <!-- <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script> -->
     <script src="https://unpkg.com/aframe-event-set-component@^5.0.0/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
-
     <script src="js/controller-listener.js"></script>
     <script src="js/player-move.js"></script>
     <script src="js/raycaster-extras.js"></script>
+    <script src="js/link-controls.js"></script>
     <style>
         #replayer-button {
         position: fixed;
@@ -18,13 +16,73 @@
         transform: translate(-50%, 0);
         padding: 5px;
         z-index: 100;
-    }
+      }
+
+      .link--teleport-mouse {
+        font-family: sans-serif,monospace;
+        font-size: 13px;
+        width: 100%;
+        font-weight: 200;
+        line-height: 16px;
+        position: absolute;
+        right: 0;
+        left: 20px;
+        bottom: 20px;
+        z-index: 1;
+      }
+
+      .link--teleport {
+        width: fit-content;
+        background-color: green;
+        padding: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        transition: opacity ease-in 0.2s;
+      }
+
+      .link--teleport:hover {
+        opacity: 0.8;
+        transition: opacity ease-in 0.2s;
+      }
     </style>
-    <script src="js/link-controls.js"></script>
+    <script>
+      AFRAME.registerComponent('x-button-listener', {
+        init: function () {
+          var el = this.el;
+          el.addEventListener('xbuttondown', function (evt) {
+            el.setAttribute('visible', !el.getAttribute('visible'));
+          });
+
+      // let cta = document.querySelector('#test');
+      // cta.addEventListener('click', () => {
+      //   alert('clicked!')
+      // })
+        }
+      });
+
+      AFRAME.registerComponent('log', {
+        // schema: {type: 'string'},
+        // init: function () {
+        //   var stringToLog = this.data;
+        //   console.log(stringToLog);
+        // },
+        events: {
+          click: function (evt) {
+            console.log('This entity was clicked!');
+          }
+        }
+      });
+
+      
+    </script>
   </head>
   <body>
-    <a-scene environment="preset: default; shadow: true" cursor="rayOrigin: mouse;" avatar-recorder
-             touch-to-click-converter>
+    
+    <a-scene environment="preset: default; shadow: true" avatar-recorder
+    touch-to-click-converter cursor="rayOrigin: mouse;">
+      
       <a-assets>
         <!-- <img id="portals-preview" src="../assets/portals.jpg"></img> -->
             <img id="previewDefault"  src="./images/spherical/default.jpg">
@@ -43,6 +101,15 @@
                  event-set__dragoff="_event: dragover-end; material.wireframe: false">
         </a-mixin>
       </a-assets>
+      <a class="link--teleport link--teleport-mouse" href="scene-2.html">
+        go to scene 2
+      </a>
+      <!-- <div>
+        <button id="test" class="teleport-mouse" style="bottom: 50px; width: fit-content">
+          click me
+        </button>
+      </div> -->
+      <!-- <a-box log="Hello, Box!" ></a-box> -->
       <!-- START: TEST Player -->
       <a-entity 
       id="player" 
@@ -88,8 +155,10 @@
       <a-entity class="cube" mixin="cube" position="-1 1.6 -1" material="color: blue"></a-entity>
       <a-entity class="cube" mixin="cube" position="0.9 1 -0.9" material="color: green"></a-entity>
       <a-entity class="cube" mixin="cube" position="1 1.6 -1" material="color: green"></a-entity>
+      <!-- <a-box id="box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box> -->
+
       <a-link	position="-4 1.6 -4" rotation="0 40 0"
-      href="portal-volcano.html" title="Volcano" image="#previewVolcano"></a-link>
+      href="scene-2.html" title="Scene 2" image="#previewJapan"></a-link>
     </a-scene>
     <!-- GitHub Corner. -->
     <!-- <a href="https://github.com/wmurphyrd/aframe-super-hands-component" class="github-corner">

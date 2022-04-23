@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Scene 2 - Demo Voice Commans</title>
+	<meta name="description" content="A-Frame Examples">
+	<script src="js/aframe-master-v1.3.0.min.js"></script>
+	<script src="js/aframe-environment-component.min.js"></script>
+    <script src="js/link-controls.js"></script>
+    <!-- voice commands -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js" integrity="sha512-FRllqoDevM/yUYKzCe8K8qvyou3LAsBLSuKYvLSoAQLo70wWTSU6KSi110dXOpEIW8+ehByraYPC188htrPnjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./aframe-speech-command-component.js"></script> 
+</head>
+
+<body>
+
+<!-- cursor activated from mouse position; only intersects objects with "link" component added (the <a-link> tag) -->
+<!-- environments featured: default, forest, egypt, goldmine, arches, japan, volcano -->
+
+<a-scene environment="preset: japan;" cursor="rayOrigin: mouse;" raycaster="far: 100; objects: [link];">
+	  
+	<a-assets>
+        <img id="previewDefault"  src="images/spherical/default.jpg">
+        <img id="previewVolcano"  src="images/spherical/volcano.jpg">
+        <img id="previewEgypt"    src="images/spherical/egypt.jpg">
+        <img id="previewForest"   src="images/spherical/forest.jpg">
+        <img id="previewArches"   src="images/spherical/arches.jpg">
+        <img id="previewJapan"    src="images/spherical/japan.jpg">
+        <img id="city" crossorigin="anonymous" src="images/volcano.jpg">
+        <img id="city-thumb" crossorigin="anonymous" src="images/volcano.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    </a-assets>
+    
+    <a-entity id="annyang" annyang-speech-recognition></a-entity>
+<a-entity id="menu" visible="false"
+        speech-command__show="command: show menu; type: attribute; attribute: visible; value: true;"
+        speech-command__hide="command: hide menu; type: attribute; attribute: visible; value: false;">
+
+        <a-plane class="link" height="1" width="1"
+        material="shader: flat; src: #city-thumb"
+        event-set__1="_event: mousedown; scale: 1 1 1"
+        event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+        event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+        event-set__4="_event: mouseleave; scale: 1 1 1"
+        set-image="on: click; target: #image-360; src: #city"
+        sound="on: click; src: #click-sound"
+        speech-command="command: go to city; type: attribute; targetElement: #image-360; attribute: src; value: #city;"
+        update-raycaster="#cursor"></a-plane>
+</a-entity>
+
+<!-- note: raycast issue (link still active) after walking through portal -->
+
+<a-sphere id="origin" radius="0.25" position="0 0 0" color="white"></a-sphere>
+
+<a-link	position="-4 1.6 -4" rotation="0 40 0"
+	href="portal-volcano.html" title="Volcano" image="#previewVolcano"></a-link>
+
+<a-link position="-2 1.6 -5" rotation="0 20 0"
+	href="portal-egypt.html" title="Egypt" image="#previewEgypt"></a-link>
+
+<a-link position="0 1.6 -6" 
+	href="portal-forest.html" title="Forest" image="#previewForest"></a-link>
+
+<a-link position="2 1.6 -5" rotation="0 -20 0"
+	href="portal-arches.html" title="Arches" image="#previewArches"></a-link>
+
+<a-link position="4 1.6 -4" rotation="0 -40 0"
+    href="portal-default.html" title="Default" image="#previewDefault"></a-link>
+
+</a-scene>
+
+</body>
+</html>
