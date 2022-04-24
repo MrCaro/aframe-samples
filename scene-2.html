@@ -35,7 +35,7 @@
 	href="portal-egypt.html" title="Egypt" image="#previewEgypt"></a-link> -->
 
 <a-link position="0 1.6 -6" 
-	href="portal-forest.html" title="Scene 3" image="#previewForest"></a-link>
+	href="scene-3.html" title="Scene 3" image="#previewForest"></a-link>
 
 <!-- <a-link position="2 1.6 -5" rotation="0 -20 0"
 	href="portal-arches.html" title="Arches" image="#previewArches"></a-link>
@@ -46,7 +46,7 @@
     <a-entity 
         id="menu" 
         visible="false"
-        position="0 20 0"
+        position="0 10 0"
         speech-command__show="command: show menu; type: attribute; attribute: visible; value: true;"
         speech-command__hide="command: hide menu; type: attribute; attribute: visible; value: false;">
 
@@ -59,7 +59,7 @@
             event-set__4="_event: mouseleave; scale: 1 1 1"
             set-image="on: click; target: #image-360; src: #city"
             sound="on: click; src: #click-sound"
-            speech-command="command: go to next; type: attribute; targetElement: #scene-3; attribute: src; value: #city;"
+            speech-command="command: next; type: attribute; targetElement: #scene-3; attribute: src; value: #city;"
             update-raycaster="#cursor"
         >
         </a-plane>
