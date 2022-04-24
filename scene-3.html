@@ -12,6 +12,19 @@
     <script src="js/physics.js"></script>
     <script src="js/link-controls.js"></script>
     <style>
+        .link--teleport-mouse {
+            font-family: sans-serif,monospace;
+            font-size: 13px;
+            width: 100%;
+            font-weight: 200;
+            line-height: 16px;
+            position: absolute;
+            right: 0;
+            left: 20px;
+            bottom: 20px;
+            z-index: 1;
+        }
+
         .link--teleport {
             width: fit-content;
             background-color: green;
@@ -26,6 +39,28 @@
         .link--teleport:hover {
             opacity: 0.8;
             transition: opacity ease-in 0.2s;
+        }
+
+        .tooltip {
+            width: fit-content;
+            font-weight: 200;
+            line-height: 16px;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 20px;
+            z-index: 1;
+            margin: auto;
+            background-color: rgb(116, 116, 116);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .tooltip--content {
+            font-family: sans-serif,monospace;
+            font-size: 13px;
+            color: white;
+            margin: 0;
         }
     </style>
 </head>
@@ -283,6 +318,12 @@ AFRAME.registerComponent("physics-grab", {
     <a class="link--teleport link--teleport-mouse" href="scene-1.html">
         go to scene 1
     </a>
+
+    <div class="tooltip">
+        <p class="tooltip--content">
+            Wear your Oculus Quest Headset for this Scene for ultimate experience
+        </p>
+    </div>
 </a-scene>
 </body>
 </html>
