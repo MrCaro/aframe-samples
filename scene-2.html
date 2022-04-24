@@ -9,6 +9,36 @@
     <!-- voice commands -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js" integrity="sha512-FRllqoDevM/yUYKzCe8K8qvyou3LAsBLSuKYvLSoAQLo70wWTSU6KSi110dXOpEIW8+ehByraYPC188htrPnjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./aframe-speech-command-component.js"></script> 
+    <style>
+        .link--teleport-mouse {
+        font-family: sans-serif,monospace;
+        font-size: 13px;
+        width: 100%;
+        font-weight: 200;
+        line-height: 16px;
+        position: absolute;
+        right: 0;
+        left: 20px;
+        bottom: 20px;
+        z-index: 1;
+      }
+
+      .link--teleport {
+        width: fit-content;
+        background-color: green;
+        padding: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        transition: opacity ease-in 0.2s;
+      }
+
+      .link--teleport:hover {
+        opacity: 0.8;
+        transition: opacity ease-in 0.2s;
+      }
+    </style>
 </head>
 
 <body>
@@ -18,7 +48,7 @@
 
 <a-scene environment="preset: japan;" cursor="rayOrigin: mouse;" raycaster="far: 100; objects: [link];">
 	<a-assets>
-        <img id="previewForest"   src="images/spherical/forest.jpg">
+        <img id="previewDefault"   src="images/spherical/default.jpg">
         <img id="city" crossorigin="anonymous" src="images/border-rainbow-box.png">
         <img id="city-thumb" crossorigin="anonymous" src="images/border-rainbow-box.png">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -35,7 +65,11 @@
 	href="portal-egypt.html" title="Egypt" image="#previewEgypt"></a-link> -->
 
 <a-link position="0 1.6 -6" 
-	href="scene-3.html" title="Scene 3" image="#previewForest"></a-link>
+    href="scene-3.html" title="Scene 3" image="#previewDefault"></a-link>
+    
+    <a class="link--teleport link--teleport-mouse" href="scene-2.html">
+        go to scene 2
+    </a>
 
 <!-- <a-link position="2 1.6 -5" rotation="0 -20 0"
 	href="portal-arches.html" title="Arches" image="#previewArches"></a-link>
