@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Scene 3 - Demo Voice Commans</title>
+    <title>Scene 3 - Quest Interactions</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="js/aframe-environment-component.js"></script>
     <script src="js/controller-listener.js"></script>
@@ -11,6 +11,23 @@
     <script src="js/physx.release.js"></script>
     <script src="js/physics.js"></script>
     <script src="js/link-controls.js"></script>
+    <style>
+        .link--teleport {
+            width: fit-content;
+            background-color: green;
+            padding: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            transition: opacity ease-in 0.2s;
+        }
+
+        .link--teleport:hover {
+            opacity: 0.8;
+            transition: opacity ease-in 0.2s;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,8 +53,6 @@ AFRAME.registerComponent("physics-grab", {
 
     }
 });
-
-
 </script>
 
 <a-scene environment="preset: default;"
@@ -49,6 +64,10 @@ AFRAME.registerComponent("physics-grab", {
         <img id="pixels" src="images/pixels.png" />
         <img id="ball" src="images/basketball-gray.png" />
         <img id="hexagons" src="images/hexagons.png"/>
+        <img id="previewDefault"   src="images/spherical/default.jpg">
+        <img id="city" crossorigin="anonymous" src="images/border-rainbow-box.png">
+        <img id="city-thumb" crossorigin="anonymous" src="images/border-rainbow-box.png">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
     </a-assets>
 
     <a-sky 
@@ -56,7 +75,7 @@ AFRAME.registerComponent("physics-grab", {
     </a-sky>
 
     <a-link	position="-4 1.6 -4" rotation="0 40 0"
-	href="portal-volcano.html" title="Volcano" image="#previewVolcano"></a-link>
+	href="scene-1.html" title="Scene 1" image="#previewDefault"></a-link>
 
     <a-entity 
         id="player" 
@@ -260,6 +279,10 @@ AFRAME.registerComponent("physics-grab", {
         color = "#BBBBBB"
         raycaster-target="canGrab: true;">
     </a-box>
+
+    <a class="link--teleport link--teleport-mouse" href="scene-1.html">
+        go to scene 1
+    </a>
 </a-scene>
 </body>
 </html>
