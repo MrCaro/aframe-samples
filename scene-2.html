@@ -48,7 +48,14 @@
             <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
          </a-assets>
          <!-- note: raycast issue (link still active) after walking through portal -->
-        <a-entity 
+    
+         <a-link position="0 1.6 -6" 
+            href="scene-3.html" title="Scene 3" image="#previewDefault"></a-link>
+         <a class="link--teleport link--teleport-mouse" href="scene-3.html">
+         go to scene 3
+         </a>
+         <a-entity id="annyang" annyang-speech-recognition></a-entity>
+         <a-entity 
             id="scene1" 
             visible="false"
             position="0 1 0"
@@ -57,14 +64,6 @@
             <a-link position="0 3.6 -6" 
                 href="scene-1.html" title="Scene 1" image="#previewDefault"></a-link>
         </a-entity>
-
-
-         <a-link position="0 1.6 -6" 
-            href="scene-3.html" title="Scene 3" image="#previewDefault"></a-link>
-         <a class="link--teleport link--teleport-mouse" href="scene-3.html">
-         go to scene 3
-         </a>
-         <a-entity id="annyang" annyang-speech-recognition></a-entity>
          <a-entity 
             id="menu" 
             visible="false"
