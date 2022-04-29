@@ -48,6 +48,17 @@
             <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
          </a-assets>
          <!-- note: raycast issue (link still active) after walking through portal -->
+        <a-entity 
+            id="scene1" 
+            visible="false"
+            position="0 1 0"
+            speech-command__show="command: go back; type: attribute; attribute: visible; value: true;"
+            speech-command__hide="command: cancel back; type: attribute; attribute: visible; value: false;">
+            <a-link position="0 3.6 -6" 
+                href="scene-1.html" title="Scene 1" image="#previewDefault"></a-link>
+        </a-entity>
+
+
          <a-link position="0 1.6 -6" 
             href="scene-3.html" title="Scene 3" image="#previewDefault"></a-link>
          <a class="link--teleport link--teleport-mouse" href="scene-3.html">
